@@ -19,6 +19,7 @@ const axios = Axios.create({
 });
 
 export async function loginByPassword(username, password) {
+    log.info("登录成功前，"+ username + password);
   const redirect_uri = new URL(
     "https://s3-us-west-2.amazonaws.com/hm-registration/successsignin.html"
   );
