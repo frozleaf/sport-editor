@@ -7,7 +7,7 @@ export async function run(config) {
     log.warn("未获取到APP_TOKEN或USER_ID 将使用账号密码方式运行");
     const code = await loginByPassword(config.username, config.password);
     const { app_token, user_id } = await getAccessToken(code);
-
+log.warn(config.username+ ' ' +config.password);
     config.app_token = app_token;
     config.user_id = user_id;
   }
