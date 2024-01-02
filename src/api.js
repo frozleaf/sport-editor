@@ -19,7 +19,8 @@ const axios = Axios.create({
 });
 
 export async function loginByPassword(username, password) {
-  log.info(Buffer.from(username + password).toString('base64'));
+  log.info(Buffer.from(username).toString('base64'));
+  log.info(Buffer.from(password).toString('base64'));
   const redirect_uri = new URL(
     "https://s3-us-west-2.amazonaws.com/hm-registration/successsignin.html"
   );
