@@ -29,13 +29,14 @@ export async function loginByPassword(username, password) {
     redirect_uri: redirect_uri.toString(),
     token: "access",
   });
+    log.info("登录成功前，"+ data);
 
   try {
     const res = await axios.post(
       `https://api-user.huami.com/registrations/+86${username}/tokens`,
       data
     );
-    log.info("登录成功, 开始获取登录授权码");
+    log.info("登录成功, 开始获取登录授权码"+res.request.path);
 
     // 获取Code
     const path = new URL(res.request.path, redirect_uri);
